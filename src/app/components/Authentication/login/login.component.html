@@ -1,0 +1,28 @@
+<div class="container-fluid">
+    <br/>
+<div  class="col-lg-4 col-md-4 col-sm-7 mx-auto form-container" >
+    
+    <p class="lead" style="font-style: inherit; font-weight: bold;">   Sign Into  Your Account</p>
+    <form #f="ngForm" (ngSubmit)="onLogin(f)">
+
+        <input ngModel name="email" #email="ngModel" type="email" placeholder="Enter Email" class="form-control"
+            required email>
+        <div class="alert alert-danger" *ngIf="email.touched && email.errors?.required">The Email is Required</div>
+        <div class="alert alert-danger" *ngIf="email.touched && email.errors?.email">Enter the correct Email address
+        </div>
+    <br/>
+        <input ngModel name="password" #password="ngModel" type="password" placeholder="Enter Password"
+            class="form-control" required minlength="6" password>
+        <div class="alert alert-danger" *ngIf="password.touched && password.errors?.required">The Password is Required
+        </div>
+        <div class="alert alert-danger" *ngIf="password.touched && password.errors?.minlength">The Password shouldbe
+            atleast 6 characters</div>
+
+        <button class="btn btn-primary" [disabled]="f.invalid" (click)="onLogin(f)">Login</button>
+    </form>
+
+<p class="my-1">
+  Dont have an account 
+</p>
+</div>
+</div>

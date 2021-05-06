@@ -1,0 +1,31 @@
+<nav class="navbar navbar-dark bg-dark">
+    
+    <div class="mx-auto">
+         <input type="text" class="form-control" placeholder="Search product" [(ngModel)]="filterTerm">
+    </div>
+    <marquee width="40%" direction="left"  >
+      <span style="color: white;">Call on : +91 9876543210 for any query </span> 
+    </marquee>
+   
+  </nav>
+<div class="container-fluid" style="background: rgb(250, 224, 215);">
+    <div class="row">
+       
+        <div class="col col-sm-4  col-md-3 col-lg-2" *ngFor="let p of Products|filter:filterTerm  ; index as i">  
+            <div class="card">
+                <img [src]="p.ProductPath" class="card-img-top" alt=""/>
+                <div class="card-footer text-center">
+                    <span class="card-title">{{p.Name | titlecase}}</span>
+                    <p class="card-text">{{p.Price | currency:'INR'}} </p>
+                    <button class="btn btn-primary" (click)="addToCart(i)" *ngIf="add !== i">Add to cart </button>
+                    <div *ngIf="add === i ">
+                        <input type="number" class="form-control" placeholder="Quantity (kg)" #amount>
+                        <button class="btn btn-primary" (click)="buy(amount.value)">Buy</button>
+                    </div>
+                </div>
+            
+            </div>
+            &nbsp;
+        </div>
+    </div>
+</div>

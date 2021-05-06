@@ -1,0 +1,18 @@
+#lblCartCount {
+    font-size: 12px;
+    background: #00ffdd;
+    color: rgb(0, 0, 0);
+    padding: 0 5px;
+    vertical-align: top;
+}
+.navbar-brand{
+    /* border: 2px solid; */
+    
+    font-style: oblique;
+    border-radius: 10px;
+    background-color:  rgb(245, 187, 187)
+}
+.btn{
+    background-color: turquoise;
+ 
+}

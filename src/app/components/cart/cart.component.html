@@ -1,0 +1,29 @@
+<table class="table table-dark table-striped">
+    <thead>
+        <td>Product Name</td>
+        <td>Price</td>
+        <td>Quantity</td>
+        <td>Total</td>
+        <td>Options</td>
+    </thead>
+    <tbody>
+        <tr *ngFor='let product of shoppingcart; index as i'>
+            <td>{{product.name}}</td>
+            <td>{{product.price}}</td>
+            <td><input type="number" placeholder="Amount (kg)" (change)="updateCart(i)" [(ngModel)]="product.amount" min="1"></td>
+            <td>{{product.price * product.amount | currency}}</td>
+            <td>
+                <!-- <button class="btn btn-primary" (click)="updateCart(i)">Update</button> -->
+                <button class="btn btn-danger" (click)="deleteCart(i)">Delete</button>
+            </td>
+        </tr>
+        <tr>
+            <td>{{calcTotal()}}</td>
+            <td></td>
+            <td></td>
+            <td>Total : {{total()}}</td>
+            <td><button class="btn btn-warning">Place Order</button></td>
+            
+        </tr>
+    </tbody>
+</table>

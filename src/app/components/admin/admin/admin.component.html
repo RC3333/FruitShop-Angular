@@ -1,0 +1,55 @@
+
+<div class="row">
+    <div class="col-lg-4">
+        <add-product></add-product>
+    </div>
+    <div class="col-lg-8">
+
+          <nav class="navbar" style="background-color: turquoise;">
+            <pagination-controls 
+            previousLabel="Prev" 
+            nextLabel="Next" 
+            (pageChange)="onTableDataChange($event)">
+          </pagination-controls>
+            <div class="mx-auto">
+                 <input type="text" class="form-control" placeholder="Search product" [(ngModel)]="filterTerm">
+            </div>
+            <div class="me-2">
+                <select (change)="onTableSizeChange($event)" class="custom-select">
+                    <option *ngFor="let size of tableSizes" [ngValue]="size">
+                      {{ size }}
+                    </option>
+                  </select></div>
+            
+          </nav>
+     
+       
+      
+        <table class="table table-dark table-striped">
+            <thead>
+                <td>Product Name</td>
+                <td>Price</td>
+                <td>Options</td>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of ProductsArr|filter:filterTerm| paginate : {
+                    itemsPerPage: tableSize,
+                    currentPage: page,
+                    totalItems: count
+                  };
+            let i = index" [class.active]="i">
+                    <td><input type="text" placeholder="product.Name" [(ngModel)]="product.Name"></td>
+                    <td><input type="number" placeholder="product.Price"  [(ngModel)]="product.Price" min="1"></td>
+                
+                    <td>
+                        <button class="btn btn-primary" (click)="update(i,product.Name,product.Price)">Update</button> &nbsp;
+                        <button class="btn btn-danger" (click)="delete(i)">Delete</button>
+                    </td>
+                </tr>
+               
+            </tbody>
+        </table>
+    </div>
+   
+   
+</div>
