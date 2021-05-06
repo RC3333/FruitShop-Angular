@@ -1,5 +1,28 @@
 # FireShop
 
+### This project is created using following technologies:
+1:Angular
+2:Firebase
+3:Bootstrap
+
+### The Project provides following features:
+1: Authentication
+2: Add/Remove Product to the Cart
+3: Responsive Web Design
+4: Admin Module For maintaing the products
+5: Search Bar
+6: Pagination
+
+### Some Major features of angular are used In this project they are as follows:
+1: Angular Routing
+2: Forms
+3: Lazy Loading for Admin Module
+4: Data binding
+5: Guard 
+6: Services
+
+More features will be added soon...
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.3.
 
 ## Development server
